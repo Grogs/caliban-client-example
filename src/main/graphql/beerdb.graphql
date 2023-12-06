@@ -1,4 +1,5 @@
 # See https://beerdb.gregd.me/graphiql
+# Also see https://codesandbox.io/p/sandbox/graphql-introspection-sdl-svlx2?file=/index.js
 
 schema {
     query: Queries

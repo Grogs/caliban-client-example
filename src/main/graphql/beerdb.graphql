@@ -1,0 +1,45 @@
+# See https://beerdb.gregd.me/graphiql
+
+schema {
+    query: Queries
+    mutation: Mutations
+}
+
+type Beer {
+    abv: BigDecimal
+    brewery: String!
+    details: String!
+    image: String!
+    merchant: String!
+    name: String!
+    price: BigDecimal!
+    untappd: UntappdDetails
+    url: String!
+}
+
+type Mutations {
+    likeBeer(likedBeerUrl: String!, userId: String!): [String!]!
+    unlikeBeer(likedBeerUrl: String!, userId: String!): [String!]!
+}
+
+type NewBeers {
+    beers: [Beer!]!
+    date: LocalDate!
+}
+
+type Queries {
+    getLatestBeers: [Beer!]!
+    getLikes(userId: String!): [String!]!
+    getRecentlyAdded: [NewBeers!]!
+}
+
+type UntappdDetails {
+    rating: BigDecimal!
+    style: String!
+    url: String!
+}
+
+scalar BigDecimal
+
+"A date without a time-zone in the ISO-8601 calendar system using the format 1970-01-01"
+scalar LocalDate
